@@ -105,7 +105,7 @@ div p{
 }
 
 .cubo div:nth-child(4){
-    transform:translateZ(-75px);
+    transform:translateZ(-75px) rotateY(180deg);
     background-color:orange;
 }
 
