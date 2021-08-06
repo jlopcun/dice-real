@@ -1,0 +1,118 @@
+
+body{
+    background:linear-gradient(45deg,#f00,#f80,#000);
+    background-position:center;
+    background-attachment: fixed;
+}
+header{
+    display:flex;
+    justify-content: center;
+}
+h1{
+    display:inline-block;
+    padding-bottom:10px;
+    position:relative;
+    font-family:'Courier New', Courier, monospace;
+    background:linear-gradient(45deg ,red,black);
+    background-clip:text;
+    -webkit-background-clip: text;
+    color:transparent;
+    
+    
+    
+    
+}
+
+h1::before{
+    content:"";
+    width:140px;
+    height:4px;
+    background:linear-gradient(90deg,red,blue);
+    position:absolute;
+    bottom:0;
+    transform:scaleX(0);
+    transition:all .5s ease;
+}
+
+h1:hover::before{
+    transform: scaleX(1);
+}
+
+
+
+.envoltura{
+    width:300px;
+    height:300px;
+    margin:100px auto;
+    perspective:700px;
+    display:grid;
+    place-items:center;
+    
+}
+
+.cubo{
+    position:relative;
+    width:150px;
+    height:150px;
+    transform-style:preserve-3d;
+    transform:rotateY(35deg), rotateX(-35deg);
+    position:relative;
+    transition:2s  ease-in;
+    animation:roting 5s ease-in alternate infinite paused;
+    
+}
+
+@keyframes roting{
+    0%{transform:rotateY(0)}
+    50%{transform:rotateY(360deg)}
+    75%{transform:rotateX(360deg)}
+    100%{transform:rotateY(0)}
+}
+
+.cubo:hover{
+    animation-play-state: running;
+}
+
+
+.cubo div{
+    position:absolute;
+    width:150px;
+    height:150px;
+    background-color: grey;
+    opacity:.7;
+}
+
+div p{
+    font-size:50px;
+    font-weight: bold;
+    text-align:center;
+    color:white;
+}
+
+.cubo div:nth-child(1){
+    transform:translateZ(75px);
+    background-color: #0fa;
+}
+
+.cubo div:nth-child(2){
+    transform:rotateY(90deg) translateZ(75px);
+    background-color: red;
+}
+
+.cubo div:nth-child(3){
+    transform:rotateY(-90deg) translateZ(75px);
+    background-color: blue;
+}
+
+.cubo div:nth-child(4){
+    transform:translateZ(-75px);
+    background-color:orange;
+}
+
+.cubo div:nth-child(5){
+    transform:rotateX(90deg) translateZ(75px);
+}
+.cubo div:nth-child(6){
+    transform:rotateX(-90deg) translateZ(75px);
+    background-color: purple;
+}
